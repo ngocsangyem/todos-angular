@@ -1,0 +1,54 @@
+
+.header
+	height: 30px
+	display: flex
+	align-items: center
+	padding: 1rem
+	position: relative
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.1)
+	.header-count
+		height: 30px
+		width: 30px
+		line-height: 30px
+		text-align: center
+		position: absolute
+		top: -15px
+		right: -7px
+		border-radius: 50%
+		font-size: .8rem
+		background-color: #FF5F6D
+		color: #ffffff
+		// display: none
+	.header-checkAll
+		border: none
+		padding-right: 1rem
+		padding-left: 0
+		// border-right: 1px solid #d0d0e1
+		font-size: 1.8rem
+		cursor: pointer
+		position: relative
+		&:focus
+			outline: none
+		&:before
+			content: attr(data-text)
+			position: absolute
+			top: -10px
+			right: -30px
+			padding: .2rem
+			width: 50px
+			font-size: 0.7rem
+			background: #000
+			color: #fff
+			border-radius: 5px
+			opacity: 0
+			visibility: hidden
+			transition: all .3s ease-in-out
+		&:hover
+			&:before
+				opacity: 1
+				visibility: visible
+		&--isActive
+			color: #5dc2ae
+
+	app-todo-input
+		width: 100%
