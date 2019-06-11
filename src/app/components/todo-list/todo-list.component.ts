@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TodoModel } from 'src/app/model/todo.model';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
 	selector: 'app-todo-list',
@@ -6,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./todo-list.component.sass']
 })
 export class TodoListComponent implements OnInit {
-	constructor() {}
+	todos$: Observable<TodoModel[]>;
 
-	ngOnInit() {}
+	constructor(private todoService: TodoService) {}
+
+	ngOnInit() {
+		this.todos$ = this.todoService.todos$;
+	}
+
+	onchangeTodoStatus(todo: TodoModel) {
+		this.todoService.changeTodoStatus(todo.id, todo.isComplete);
+	}
 }

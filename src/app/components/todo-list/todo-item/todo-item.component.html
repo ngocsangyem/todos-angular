@@ -1,7 +1,8 @@
-<li class="task">
+<div class="task">
 	<div class="task-content">
-		<input class="task-toggle" type="checkbox">
-		<label>Task 1</label>
+		<input class="task-toggle" type="checkbox" [checked]="todo.isComplete" [id]="todo.id"
+			[ngClass]="{ checked: todo.isComplete }" (change)="changeTodoStatus()">
+		<label>{{todo.name}}</label>
 	</div>
 	<div class="task-btn-group">
 		<button class="btn-edit">
@@ -15,4 +16,4 @@
 	<form action="" class="task-form">
 		<input type="text" name="todoEdit" placeholder="Edit your task">
 	</form>
-</li>
+</div>

@@ -19,15 +19,16 @@
 			-webkit-appearance: none
 			-moz-appearance: none
 			appearance: none
-			cursor: pointer
+			width: 40px
+			height: auto
 			position: absolute
 			top: 0
-			left: 0
-			width: 100%
-			height: 100%
-			margin: 0
-			z-index: 1
-			&.checked, &:checked
+			bottom: 0
+			// margin: auto 0
+			border: none
+			outline: none
+			z-index: 2
+			&.checked
 				+ label
 					background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNDAgNDAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQwIDQwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMwcHgiIGhlaWdodD0iMzBweCI+CjxnPgoJPHBhdGggc3R5bGU9ImZpbGw6I0JBRTBCRDsiIGQ9Ik0yMCwzOC41QzkuOCwzOC41LDEuNSwzMC4yLDEuNSwyMFM5LjgsMS41LDIwLDEuNVMzOC41LDkuOCwzOC41LDIwUzMwLjIsMzguNSwyMCwzOC41eiIvPgoJPGc+CgkJPHBhdGggc3R5bGU9ImZpbGw6IzVFOUM3NjsiIGQ9Ik0yMCwyYzkuOSwwLDE4LDguMSwxOCwxOHMtOC4xLDE4LTE4LDE4UzIsMjkuOSwyLDIwUzEwLjEsMiwyMCwyIE0yMCwxQzkuNSwxLDEsOS41LDEsMjAgICAgczguNSwxOSwxOSwxOXMxOS04LjUsMTktMTlTMzAuNSwxLDIwLDFMMjAsMXoiLz4KCTwvZz4KPC9nPgo8cG9seWdvbiBzdHlsZT0iZmlsbDojRkZGRkZGOyIgcG9pbnRzPSIxNywyNy40IDEwLjMsMjAuNyAxMS43LDE5LjMgMTcsMjQuNiAyOS4zLDEyLjMgMzAuNywxMy43ICIvPgo8L3N2Zz4K)
 					text-decoration: line-through
