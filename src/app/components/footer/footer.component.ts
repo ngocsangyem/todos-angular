@@ -6,6 +6,7 @@ import {
 } from 'src/app/interface/filtering.interface';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
+import { type } from 'os';
 
 @Component({
 	selector: 'app-footer',
@@ -30,6 +31,27 @@ export class FooterComponent implements OnInit, OnDestroy {
 			map(todos => todos.some(todoItem => todoItem.isComplete)),
 			takeUntil(this.destroy$)
 		);
+
+		this.todoService.length$
+			.pipe(takeUntil(this.destroy$))
+			.subscribe(length => {
+				this.length = length;
+			});
+	}
+
+	private setActiveFilterBtn(type: Filter) {
+		this.filterButtons.forEach(btn => {
+			btn.isActive = btn.type === type;
+		});
+	}
+
+	filter(type: Filter) {
+		this.setActiveFilterBtn(type);
+		this.todoService.filterTodos(type);
+	}
+
+	clearCompleted() {
+		this.todoService.clearCompleted();
 	}
 
 	ngOnDestroy() {
