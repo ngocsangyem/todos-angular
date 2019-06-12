@@ -11,6 +11,12 @@ export class TodoItemComponent implements OnInit {
 	@Output() changeStatus: EventEmitter<TodoModel> = new EventEmitter<
 		TodoModel
 	>();
+	@Output() editTodo: EventEmitter<TodoModel> = new EventEmitter<TodoModel>();
+	@Output() removeTodo: EventEmitter<TodoModel> = new EventEmitter<
+		TodoModel
+	>();
+
+	isEditing = false;
 
 	constructor() {}
 
@@ -21,5 +27,19 @@ export class TodoItemComponent implements OnInit {
 			...this.todo,
 			isComplete: !this.todo.isComplete
 		});
+	}
+
+	submitEdit(event: KeyboardEvent) {
+		const { keyCode } = event;
+		event.preventDefault();
+
+		if (keyCode === 13) {
+			this.editTodo.emit(this.todo);
+			this.isEditing = false;
+		}
+	}
+
+	deleteTodo() {
+		this.removeTodo.emit(this.todo);
 	}
 }

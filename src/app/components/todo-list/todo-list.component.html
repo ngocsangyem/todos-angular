@@ -1,6 +1,7 @@
 <div class="body">
 	<div class="tasks" id="bodyTasks">
-		<app-todo-item *ngFor="let todo of (todos$ | async)" [todo]="todo" (changeStatus)="onchangeTodoStatus($event)">
+		<app-todo-item *ngFor="let todo of (todos$ | async)" [todo]="todo" (changeStatus)="onchangeTodoStatus($event)"
+			(editTodo)="onEditTodo($event)" (removeTodo)="onRemoveTodo($event)">
 		</app-todo-item>
 	</div>
 </div>
