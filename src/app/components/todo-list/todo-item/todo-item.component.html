@@ -2,6 +2,7 @@
 	<div class="task-content">
 		<input class="task-toggle" type="checkbox" [checked]="todo.isComplete" [id]="todo.id"
 			[ngClass]="{ checked: todo.isComplete }" (change)="changeTodoStatus()">
+		<!-- <label [@fadeStrikeThrough]="todo.isComplete ? 'completed' : 'active' ">{{todo.name}}</label> -->
 		<label>{{todo.name}}</label>
 	</div>
 	<div class="task-btn-group">

@@ -34,7 +34,8 @@ export class TodoService {
 			this.storageService.getValue<TodoModel[]>(
 				TodoService.TodoStorageKey
 			) || [];
-		this.filteredTodos = [...this.todos.map(todo => ({ ...todo }))];
+		// this.filteredTodos = [...this.todos.map(todo => ({ ...todo }))];
+		this.filteredTodos = [...this.todos];
 		this.updateTodosData();
 	}
 
@@ -80,9 +81,10 @@ export class TodoService {
 		this.todos = this.todos.map(todo => {
 			return {
 				...todo,
-				isComplete:
-			}
-		})
+				isComplete: !this.todos.every(todoItem => todoItem.isComplete)
+			};
+		});
+		this.updateToLocalStorage();
 	}
 
 	filterTodos(filter: Filter, isFiltering: boolean = true) {
@@ -98,7 +100,8 @@ export class TodoService {
 				this.filteredTodos = this.todos.filter(todo => todo.isComplete);
 				break;
 			case Filter.All:
-				this.filteredTodos = [...this.todos.map(todo => ({ ...todo }))];
+				// this.filteredTodos = [...this.todos.map(todo => ({ ...todo }))];
+				this.filteredTodos = [...this.todos];
 				break;
 		}
 		if (isFiltering) {
